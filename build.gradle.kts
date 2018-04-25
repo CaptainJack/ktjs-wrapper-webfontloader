@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-	compile("ru.capjack.ktjs:ktjs-common:0.1.0-SNAPSHOT")
+	implementation("ru.capjack.ktjs:ktjs-common:0.1.0-SNAPSHOT")
 }
 
 tasks.withType<Kotlin2JsCompile> {
