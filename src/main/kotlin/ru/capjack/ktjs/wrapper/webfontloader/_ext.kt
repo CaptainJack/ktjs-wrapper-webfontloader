@@ -2,8 +2,6 @@
 
 package ru.capjack.ktjs.wrapper.webfontloader
 
-import ru.capjack.ktjs.common.js.jst
-
 inline fun WebFont.load(init: WebFontConfig.() -> Unit) {
 	WebFont.load(jst(init))
 }
@@ -14,4 +12,10 @@ inline fun WebFontConfig.custom(init: WebFontConfig.Custom.() -> Unit) {
 
 inline fun WebFontConfig.Custom.families(vararg values: String) {
 	families = values.asDynamic()
+}
+
+inline fun <T : Any> jst(init: T.() -> Unit): T {
+	val o: T = js("{}")
+	o.init()
+	return o
 }
